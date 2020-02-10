@@ -35,8 +35,6 @@ class Contact extends Component {
                 <label htmlFor="message">Message</label>
                 <textarea></textarea>
                 <button className="submit">SEND MESSAGE</button>
-
-
             </form>
         </div>
     )

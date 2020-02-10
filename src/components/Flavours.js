@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import blueberry from '../images/blueberry.png'
 import apple from '../images/apple.png'
 import grape from '../images/grape.png'
@@ -14,46 +14,42 @@ class Flavours extends Component {
             description: 'Mollitia aspernatur rem, quaerat, temporibus distinctio illum ut iste sint voluptate fugiat adipisci doloribus tempore.'
         }
     }
-
-    apples = (e) => {
-        e.preventDefault();
-        this.setState({
+        
+    flavours = {
+        "apple": {
             img: apple,
             btnColor: '#9ac00e',
-            title:'Apes for Apples',
-        })
-    }
-
-    blueberry = (e) => {
-        e.preventDefault();
-        this.setState({
+            title:'Apes for Apples'
+        },
+        "blueberry":{
             img: blueberry,
             btnColor: '#8b65a0',
-            title:'Blue Bells',
-        })
-    }
-
-    grape = (e) => {
-        e.preventDefault();
-        this.setState({
+            title:'Blue Bells'
+        },
+        "grape": {
             img: grape,
             btnColor: '#9F375B',
-            title:'Grape Seed',
-        })
-    }
-
-    strawberry = (e) => {
-        e.preventDefault();
-        this.setState({
+            title:'Grape Seed'
+        },
+        "strawberry": {
             img: strawberry,
             btnColor: '#F87877',
-            title:'Rawberry Blaster',
-        }) 
+            title:'Rawberry Blaster'
+        }
+    }
+
+    onClick = (e) => {
+        let target = this.flavours[e.target.id];
+        this.setState({
+            img: target.img,
+            btnColor: target.btnColor,
+            title: target.title
+        })
     }
 
     render() {      
     return (
-         <>
+    <Fragment>
         <header>
            <div className="flavour" id="flavours">
                 <div className="flavour_left">
@@ -67,15 +63,15 @@ class Flavours extends Component {
                     <h2>{this.state.title}</h2>
                     <p>{this.state.description}</p>
                     <div className="flavour_nav_list">
-                        <button onClick={this.apples} id='apple'></button>
-                        <button onClick={this.blueberry} id='blueberry'></button>
-                        <button onClick={this.grape} id='grape'></button>
-                        <button onClick={this.strawberry} id='strawberry'></button>
+                        <button onClick={this.onClick} id='apple'></button>
+                        <button onClick={this.onClick} id='blueberry'></button>
+                        <button onClick={this.onClick} id='grape'></button>
+                        <button onClick={this.onClick} id='strawberry'></button>
                     </div> 
                 </div>
             </div>
         </header>
-    </>
+    </Fragment>
     )
 }
 }

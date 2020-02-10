@@ -7,10 +7,6 @@ import WOW from 'wowjs'
 
 
 class MenuImgs extends Component {
-
-    // setTimeout(function() {
-    //     window.location = '/apple';
-    // }, 3500);
     componentDidMount() {
         new WOW.WOW().init();
     }
